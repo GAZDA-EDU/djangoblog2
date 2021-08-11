@@ -4,4 +4,5 @@ __pycache__
 venv2
 db.sqlite3
 /static
+/moje_media
 .DS_Store
