@@ -3,7 +3,8 @@
 {% block tytul %} Lista filmów {% endblock %}
 
 {% block strona %}
-    <div class="card" style="width: 23rem;">
+<div class="card" style="width: 23rem;" xmlns:width="http://www.w3.org/1999/xhtml"
+     xmlns:width="http://www.w3.org/1999/xhtml">
      {% if user.is_authenticated %}
           <div class="card-body">
                 <h5 class="card-title">Witaj {{ user.username }}</h5>
@@ -23,8 +24,9 @@
         {% for film in filmy %}
             <div class="card" style="width: 26rem;">
               <div class="card-body">
+                  <img src="/media/{{ film.plakat }}" class="plakat" width="200px" float="left">
                   <div class="row">
-                      <div class="col-9">
+                      <div class="col-9"
                          <h5 class="card-title">{{ film }}</h5>
                       </div>
                       <div class="col-3">

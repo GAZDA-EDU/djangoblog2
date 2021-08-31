@@ -1,3 +1,7 @@
-body {
+.body {
     padding: 2rem;
+}
+.plakat {
+    width: 100px;
+    float: left;
 }
