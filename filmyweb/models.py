@@ -1,5 +1,16 @@
 from django.db import models
 
+class DodatkoweInfo(models.Model):
+    GATUNEK = {
+        (0, 'Inne'),
+        (1, 'Action'),
+        (2, 'Komedia'),
+        (3, 'Sci-fi'),
+        (4, 'Drama'),
+    }
+    czas_trwania = models.PositiveSmallIntegerField(default=0)
+    gatunek = models.PositiveSmallIntegerField(default=0, choices=GATUNEK)
+
 class Film(models.Model):
     tytul = models.CharField(max_length=64, blank=False, unique=True)
     rok = models.PositiveSmallIntegerField(default=2000)
@@ -7,6 +18,7 @@ class Film(models.Model):
     premiera = models.DateField(null=True, blank=True)
     imdb_rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     plakat = models.ImageField(upload_to="plakaty", null=True, blank=True)
+    dodatkowe = models.OneToOneField(DodatkoweInfo, on_delete=models.CASCADE, null=True, blank=True)
 
     # Metoda wyświetlająca nazwę i rok filmu.
     def __str__(self):
@@ -15,3 +27,4 @@ class Film(models.Model):
 
     def tytul_z_rokiem(self):
         return "{} ({})". format(self.tytul, self.rok)
+
