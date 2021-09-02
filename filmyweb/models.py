@@ -1,6 +1,7 @@
 from django.db import models
 
 class DodatkoweInfo(models.Model):
+    DoesNotExist = None
     GATUNEK = {
         (0, 'Inne'),
         (1, 'Action'),
